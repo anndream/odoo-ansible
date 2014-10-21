@@ -1,0 +1,4 @@
+postgresql:
+  version: 9.3
+  install_development_headers: true
+  odoo_user: odoo

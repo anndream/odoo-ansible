@@ -1,0 +1,13 @@
+---
+- name: Instalar dependencias y herramientas
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - git
+    - byobu
+    - emacs23-nox
+    - python-pip
+    - python-dev
+    - libpq-dev
+    - python-psycopg2
+  tags:
+    - packages

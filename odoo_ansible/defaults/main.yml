@@ -1,0 +1,18 @@
+---
+pg_version: 9.3
+pg_encoding: 'UTF-8'
+pg_locale: 'es_EC.UTF-8'
+
+pg_admin_user: 'postgres'
+pg_default_auth_method: 'trust'
+
+pg_odoo_user: 'odoo'
+
+pg_cluster: 'main'
+pg_cluster_recreate: false
+
+pg_dev_headers: true
+pg_contrib: true
+
+pg_postgis: false
+pg_postgis_version: '2.1'

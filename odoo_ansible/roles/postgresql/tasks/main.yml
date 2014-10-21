@@ -1,0 +1,23 @@
+---
+- name: Install PostgreSQL
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - postgresql-common
+    - postgresql-contrib
+    - postgresql-{{ postgresql.version }}
+  tags:
+    - packages
+  
+- name: Configurar usuario Odoo en PostgreSQL
+  postgresql_user: name={{ postgresql.odoo_user }} state=present role_attr_flags=CREATEDB,LOGIN
+  sudo: yes
+  sudo_user: postgres
+
+- name: Asegurar que servidor de postgres esta corriendo
+  service: 
+    name: postgresql
+    state: started
+    enabled: yes
+  sudo: true
+  tags: postgres_start
+  when: postgresql_configuration_changed

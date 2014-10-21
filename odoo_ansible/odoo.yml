@@ -1,0 +1,8 @@
+---
+- name: Install Odoo, PostgreSQL, Nginx
+  hosts: all
+  sudo: True
+  roles:
+    - common
+    - postgresql
+
