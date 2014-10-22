@@ -14,8 +14,9 @@
     name: postgresql
     state: started
   
-- name: Configurar usuario Odoo en PostgreSQL
-  postgresql_user: 
-    name: "{{ postgresql.user }}"
-    state: present
-    role_attr_flags: CREATEDB,LOGIN
+#- name: Configurar usuario Odoo en PostgreSQL
+#  sudo_user: postgres
+#  postgresql_user: 
+#    name: "{{ postgresql.user }}"
+#    state: present
+#    role_attr_flags: CREATEDB,LOGIN

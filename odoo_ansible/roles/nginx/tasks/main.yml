@@ -7,12 +7,18 @@
 
 - name: Nginx | Crear conf proxy para odoo
   template:
-    src: "{{ item.j2 }}"
-    dest: /etc/nginx/sites-available/odoo
+    src: "templates/{{item}}.j2"
+    dest: "{{nginx.etc_path}}/sites-available/odoo"
     owner: root
     group: root
     mode: 0755
   with_items: ['odoo']
+
+- name: Nginx | Softlink para habilitar sitio
+  file:
+    src: "{{nginx.etc_path}}/sites-available/odoo"
+    dest: "{{nginx.etc_path}}/sites-enabled/odoo"
+    state: link
 
 - name: Nginx | Asegurar que Nginx esta instalado (package)
   apt:

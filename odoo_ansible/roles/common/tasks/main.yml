@@ -22,5 +22,5 @@
   tags: ['users','configuration']
 
 - name: Crear directorios para sistema
-  file: path=/home/{{ system.odoo_user }}/odoo_gob state=directory owner={{ system.odoo_user }} group={{ system.odoo_group }}
+  file: path=/home/{{ system.odoo_user }}/{{ odoo.home }} state=directory owner={{ system.odoo_user }} group={{ system.odoo_group }}
  

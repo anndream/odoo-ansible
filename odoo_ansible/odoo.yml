@@ -6,4 +6,6 @@
     - common
     - postgresql
     - nginx
+    - odoo
+    - runit
 
