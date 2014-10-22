@@ -7,3 +7,9 @@
 
 - name: Virtualenv | Activating Virtualenv
   command: /home/{{ system.odoo_user }}/activator
+
+- name: Virtualenv | Copying requirements
+  template: src=requirements_{{odoo.version}}.j2 dest=/home/{{ system.odoo_user }}/requirements_{{odoo.version}}.txt mode=644
+
+- name: Virtualenv | Installing requirements
+  pip: requirements=/home/{{ system.odoo_user }}/requirements_{{odoo.version}}.txt

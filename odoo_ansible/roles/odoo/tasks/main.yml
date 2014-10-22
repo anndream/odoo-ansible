@@ -1,6 +1,5 @@
 ---
 - include: virtualenv.yml
-- include: requirements.yml
 #- name: Odoo | Clone repo
 #  git: 
 #    repo: "{{ odoo.repo_git }}"
