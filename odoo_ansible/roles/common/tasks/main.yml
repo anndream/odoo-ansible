@@ -11,3 +11,16 @@
     - python-psycopg2
   tags:
     - packages
+
+- name: Crear grupo Odoo del sistema
+  group: name={{ system.odoo_group }} state=present
+  tags: ['users','configuration']
+
+
+- name: Crear usuario Odoo del sistema
+  user: name={{ system.odoo_user }} generate_ssh_key=yes ssh_key_bits=2048 state=present
+  tags: ['users','configuration']
+
+- name: Crear directorios para sistema
+  file: path=/home/{{ system.odoo_user }}/odoo_gob state=directory owner={{ system.odoo_user }} group={{ system.odoo_group }}
+ 

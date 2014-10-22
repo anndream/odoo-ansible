@@ -1,4 +1,11 @@
 postgresql:
   version: 9.3
   install_development_headers: true
+  user: odoodb
+
+system:
   odoo_user: odoo
+  odoo_group: odoo
+
+odoo:
+  odoo_version: 8.0

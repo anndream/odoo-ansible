@@ -1,0 +1,8 @@
+---
+- name: Runit | Instalar Runit como monitor de servicio
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - runit
+  tags: ['configuration', 'service']
+
+# Pendiente la configuracion para odoo, revisar plantillas

@@ -1,1 +1,22 @@
 ---
+- name: Nginx | Instalar Nginx y Configurar como Web Proxy
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - nginx
+  tags: ['configuration', 'webserver']
+
+- name: Nginx | Crear conf proxy para odoo
+  template:
+    src: "{{ item.j2 }}"
+    dest: /etc/nginx/sites-available/odoo
+    owner: root
+    group: root
+    mode: 0755
+  with_items: ['odoo']
+
+- name: Nginx | Asegurar que Nginx esta instalado (package)
+  apt:
+    pkg: nginx
+    state: present
+  notify:
+    - restart nginx

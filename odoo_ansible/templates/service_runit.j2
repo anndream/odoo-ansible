@@ -1,0 +1,13 @@
+#!/bin/bash
+
+/etc/sv/openerp/run
+
+ROOT=/home/openerp/openerp/70/server
+PID=/var/run/openerp_gunicorn.pid
+APP=/home/openerp/openerp/70/openerp.sh
+
+if [ -f $PID ]; then rm $PID; fi
+
+echo "Starting openerp as `whoami`"
+
+exec $APP --pid=$PID

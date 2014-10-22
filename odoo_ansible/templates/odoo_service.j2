@@ -1,0 +1,23 @@
+#!/bin/bash
+
+NAME="openerp"
+OERP_SERVER_DIR=/home/openerp/odoo/odoo
+SOCKFILE=/home/openerp/odoo/gunicorn.sock
+VENV_DIR=/home/openerp/.virtualenvs/oerp7/bin/activate
+USER=openerp
+GROUP=openerp
+
+echo "Starting $NAME as `whoami`"
+
+cd $OERP_SERVER_DIR
+
+echo "Activado venv python"
+
+source $VENV_DIR
+export PYTHONPATH=$OERP_SERVER_DIR:$PYTHONPATH
+
+#run directory
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+exec /home/openerp/.virtualenvs/oerp7/bin/gunicorn openerp:service.wsgi_server.application -c openerp-wsgi.py --user=$USER --log-level=debug
