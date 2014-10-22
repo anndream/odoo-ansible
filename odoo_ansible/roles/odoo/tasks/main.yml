@@ -1,7 +1,9 @@
 ---
-- name: Installing Odoo | Clone repo
-  git: 
-    repo: "{{ odoo.repo_git }}"
-    dest: "/home/{{ system.odoo_user }}/{{ odoo.home }}"
-    version: "{{ odoo.version }}"
+- include: virtualenv.yml
+- include: requirements.yml
+#- name: Odoo | Clone repo
+#  git: 
+#    repo: "{{ odoo.repo_git }}"
+#    dest: "/home/{{ system.odoo_user }}/{{ odoo.home }}"
+#    version: "{{ odoo.version }}"
   

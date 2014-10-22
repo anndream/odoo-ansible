@@ -1,0 +1,5 @@
+#!/bin/bash
+source /usr/local/bin/virtualenvwrapper.sh
+echo "Activating virtualenv odoo version: {{odoo.version}}"
+mkvirtualenv odoo{{odoo.version}}
+$@

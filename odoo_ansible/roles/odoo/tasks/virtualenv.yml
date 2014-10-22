@@ -1,0 +1,9 @@
+---
+- name: Virtualenv | Installation
+  pip: name=virtualenvwrapper
+
+- name: Virtualenv | Creating and Activating
+  template: src=templates/venv_exec.j2 dest=/home/{{ system.odoo_user }}/activator mode=755
+
+- name: Virtualenv | Activating Virtualenv
+  command: /home/{{ system.odoo_user }}/activator
