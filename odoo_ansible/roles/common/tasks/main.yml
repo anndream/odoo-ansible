@@ -9,6 +9,14 @@
     - python-dev
     - libpq-dev
     - python-psycopg2
+    - libjpeg62-dev 
+    - libpng++-dev 
+    - python-dev 
+    - libxml2-dev 
+    - libxslt1-dev 
+    - libldap2-dev
+    - libsasl2-dev 
+    - libssl-dev
   tags:
     - packages
 

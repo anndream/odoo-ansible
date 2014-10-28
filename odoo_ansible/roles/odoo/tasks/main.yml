@@ -1,8 +1,8 @@
 ---
 - include: virtualenv.yml
-#- name: Odoo | Clone repo
-#  git: 
-#    repo: "{{ odoo.repo_git }}"
-#    dest: "/home/{{ system.odoo_user }}/{{ odoo.home }}"
-#    version: "{{ odoo.version }}"
+- name: Odoo | Clone repo
+  git: 
+    repo: "{{ odoo.repo_git }}"
+    dest: "/home/{{ system.odoo_user }}/{{ odoo.home }}"
+    version: "{{ odoo.version }}.0"
   
