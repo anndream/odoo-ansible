@@ -4,5 +4,5 @@
   git: 
     repo: "{{ odoo.repo_git }}"
     dest: "/home/{{ system.odoo_user }}/{{ odoo.home }}"
-    version: "{{ odoo.version }}.0"
+    version: "6.1"
   
